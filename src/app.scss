@@ -1,0 +1,119 @@
+// colors
+$body-background-color: hsl(185, 41%, 84%);
+$main-card-color: hsl(0, 0%, 100%);
+$tips-background-color: hsl(183, 100%, 15%);
+$active-color: hsl(172, 67%, 45%);
+$options-color: hsl(186, 14%, 43%);
+$input-background-color: hsl(189, 41%, 97%);
+$error-color: #B47D6E;
+
+$grayish-cyan: hsl(184, 14%, 56%);
+
+// fonts
+$font-family: 'Space Mono', monospace;
+$font-weight: 700;
+$inputs-font-size: 24px;
+
+// resolutions
+$mobile-resolution: 375px;
+$desktop-resolution: 1440px;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $body-background-color;
+}
+
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    header {
+        margin-bottom: 70px;
+    }
+
+    main {
+        // fonts
+        font-family: $font-family;
+        font-weight: $font-weight;
+
+        // shape
+        background: $main-card-color;
+        border-radius: 25px;
+        height: 500px;
+        width: 50%;
+
+        // flex
+        display: flex;
+
+        .card {
+            width: 100%;
+            border-radius: 20px;
+
+            // flex
+            display: flex;
+            flex-direction: column;
+        }
+
+        .display {
+            background: $tips-background-color;
+            margin: 25px 25px 25px 0;
+        }
+
+        .options {
+            margin: 50px;
+            color: $options-color;
+
+            .long-input {
+                display: flex;
+                flex-direction: column;
+
+                .input-labels {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .error-label {
+                    color: $error-color;
+                    visibility: hidden;
+                }
+
+                .input-container {
+                    position: relative;
+
+                    input {
+                        height: 40px;
+                        width: 100%;
+                        border: none;
+                        background: $input-background-color;
+                        border-radius: 5px;
+                        margin-top: 2px;
+                        text-align: right;
+                        font-size: $inputs-font-size;
+                        color: $tips-background-color;
+                        font-weight: $font-weight;
+                        padding: 0 20px;
+
+                        &:focus {
+                            border: $active-color 2px solid;
+                            outline: none;
+                        }
+                    }
+
+                    img {
+                        position: absolute;
+                        top: 14px;
+                        left: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
