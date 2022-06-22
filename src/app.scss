@@ -6,8 +6,7 @@ $active-color: hsl(172, 67%, 45%);
 $options-color: hsl(186, 14%, 43%);
 $input-background-color: hsl(189, 41%, 97%);
 $error-color: #B47D6E;
-
-$grayish-cyan: hsl(184, 14%, 56%);
+$placeholders-color: hsl(184, 14%, 56%);
 
 // fonts
 $font-family: 'Space Mono', monospace;
@@ -48,7 +47,7 @@ body {
         background: $main-card-color;
         border-radius: 25px;
         height: 500px;
-        width: 50%;
+        min-width: 1000px;
 
         // flex
         display: flex;
@@ -67,10 +66,12 @@ body {
             margin: 25px 25px 25px 0;
         }
 
+        // left-card
         .options {
             margin: 50px;
             color: $options-color;
 
+            // Input component
             .long-input {
                 display: flex;
                 flex-direction: column;
@@ -105,6 +106,10 @@ body {
                             border: $active-color 2px solid;
                             outline: none;
                         }
+
+                        &::placeholder {
+                            color: $placeholders-color;
+                        }
                     }
 
                     img {
@@ -114,6 +119,66 @@ body {
                     }
                 }
             }
+
+            .tips-container {
+                margin: 50px 0;
+
+                .tips {
+                    display: grid;
+                    grid-template-columns: 134px 134px 134px;
+                    grid-template-rows: 50px 50px;
+                    column-gap: 15px;
+                    row-gap: 15px;
+                    margin-top: 10px;
+
+                    button {
+                        font-size: $inputs-font-size;
+                        color: $main-card-color;
+                        background-color: $tips-background-color;
+                        font-weight: $font-weight;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: $active-color;
+                            color: $tips-background-color;
+                        }
+                    }
+
+                    input {
+                        color: $tips-background-color;
+                        text-align: right;
+                        padding: 0 20px;
+                        font-weight: $font-weight;
+                        font-size: $inputs-font-size;
+                        background-color: $input-background-color;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+
+                        &:focus {
+                            border: $active-color 2px solid;
+                            outline: none;
+                        }
+
+                        &::placeholder {
+                            color: $options-color;
+                        }
+                    }
+                }
+            }
         }
     }
+}
+
+// off spinners
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    -moz-appearance: textfield;
 }

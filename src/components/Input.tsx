@@ -5,10 +5,10 @@ import person from '../assets/icon-person.svg'
 import dollar from '../assets/icon-dollar.svg'
 
 interface InputData {
-    title?: string
-    error?: string
-    icon?: string
-    type?: string
+    title: string
+    error: string
+    icon: string
+    type: string
 }
 
 function Input(props: InputData) {

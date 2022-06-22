@@ -6,6 +6,7 @@ import logo from './assets/logo.svg'
 
 // components
 import Input from './components/Input'
+import Tips from './components/Tips'
 
 function App() {
   return (
@@ -18,6 +19,13 @@ function App() {
             icon='dollar'
             error="Can't be zero"
             type="float" />
+          <Tips
+            title='Select Tip %' />
+          <Input
+            title="Number of People"
+            icon='person'
+            error="Can't be zero"
+            type="int" />
         </div>
         <div className='display card'></div>
       </main >
