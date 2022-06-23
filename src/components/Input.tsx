@@ -9,6 +9,7 @@ interface InputData {
     error: string
     icon: string
     type: string
+    id: string
 }
 
 function Input(props: InputData) {
@@ -19,7 +20,7 @@ function Input(props: InputData) {
                 <span className='error-label'>{props.error}</span>
             </div>
             <div className='input-container'>
-                <input type="number" placeholder="0" min={0} step={(props.type === "int") ? 1 : 0.01} />
+                <input type="number" placeholder="0" min={0} step={(props.type === "int") ? 1 : 0.01} id={props.id} />
                 {(props.icon === "dollar") ? <img src={dollar} /> : <img src={person} />}
             </div>
         </div>

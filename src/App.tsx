@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 
 // assets
 import './app.scss'
@@ -10,6 +11,15 @@ import Tips from './components/Tips'
 import Output from './components/Output'
 
 function App() {
+  const [tipAmount, setTipAmount] = useState(0.0)
+  const [total, setTotal] = useState(0.0)
+
+  // function for passing data from Tips component
+  const passData = (tips: number, total: number) => {
+    setTipAmount(tips)
+    setTotal(total)
+  }
+
   return (
     <div className="App">
       <header><img src={logo} alt='Logo' /></header>
@@ -19,22 +29,25 @@ function App() {
             title="Bill"
             icon='dollar'
             error="Can't be zero"
-            type="float" />
+            type="float"
+            id='bill-input' />
           <Tips
-            title='Select Tip %' />
+            title='Select Tip %'
+            passData={passData} />
           <Input
             title="Number of People"
             icon='person'
             error="Can't be zero"
-            type="int" />
+            type="int"
+            id='person-input' />
         </div>
         <div className='display card'>
           <Output
             title='Tip Amount'
-            result={0.0} />
+            result={tipAmount} />
           <Output
             title='Total'
-            result={0.0} />
+            result={total} />
           <button>reset</button>
         </div>
       </main >
