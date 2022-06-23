@@ -7,6 +7,7 @@ import logo from './assets/logo.svg'
 // components
 import Input from './components/Input'
 import Tips from './components/Tips'
+import Output from './components/Output'
 
 function App() {
   return (
@@ -27,7 +28,15 @@ function App() {
             error="Can't be zero"
             type="int" />
         </div>
-        <div className='display card'></div>
+        <div className='display card'>
+          <Output
+            title='Tip Amount'
+            result={0.0} />
+          <Output
+            title='Total'
+            result={0.0} />
+          <button>reset</button>
+        </div>
       </main >
     </div >
   );

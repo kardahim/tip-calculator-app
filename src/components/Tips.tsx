@@ -1,10 +1,7 @@
 import React from 'react'
 
 interface TipsData {
-    title?: string
-    error?: string
-    icon?: string
-    type?: string
+    title: string
 }
 
 function Tips(props: TipsData) {
@@ -12,7 +9,6 @@ function Tips(props: TipsData) {
         <div className='tips-container'>
             <div className='tip-labels'>
                 <span>{props.title}</span>
-                <span className='error-label'>{props.error}</span>
             </div>
             <div className='tips'>
                 <button>5%</button>
@@ -20,7 +16,7 @@ function Tips(props: TipsData) {
                 <button>15%</button>
                 <button>25%</button>
                 <button>50%</button>
-                <input placeholder='Custom' min={1} step={1} />
+                <input placeholder='Custom' type='number' min={1} step={1} />
             </div>
         </div>
     )

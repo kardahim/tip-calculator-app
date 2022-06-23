@@ -3,6 +3,7 @@ $body-background-color: hsl(185, 41%, 84%);
 $main-card-color: hsl(0, 0%, 100%);
 $tips-background-color: hsl(183, 100%, 15%);
 $active-color: hsl(172, 67%, 45%);
+$hover-color: hsl(172, 67%, 75%);
 $options-color: hsl(186, 14%, 43%);
 $input-background-color: hsl(189, 41%, 97%);
 $error-color: #B47D6E;
@@ -61,9 +62,52 @@ body {
             flex-direction: column;
         }
 
+        // right-card
         .display {
             background: $tips-background-color;
             margin: 25px 25px 25px 0;
+            padding: 45px 45px 0 45px;
+
+            .output-container {
+                display: flex;
+                justify-content: space-between;
+                margin: 20px 0;
+
+                .output-labels {
+                    display: flex;
+                    flex-direction: column;
+
+                    .output-title {
+                        color: $main-card-color;
+                    }
+
+                    .output-subtitle {
+                        color: $placeholders-color;
+                    }
+                }
+
+                .output-result {
+                    color: $active-color;
+                    font-size: 40px;
+                }
+            }
+
+            button {
+                height: 45px;
+                margin-top: 140px;
+                text-transform: uppercase;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+                background-color: $active-color;
+                font-size: $inputs-font-size;
+                font-weight: $font-weight;
+                color: $tips-background-color;
+
+                &:hover {
+                    background-color: $hover-color;
+                }
+            }
         }
 
         // left-card
@@ -139,9 +183,10 @@ body {
                         border: none;
                         border-radius: 5px;
                         cursor: pointer;
+                        font-family: $font-family;
 
                         &:hover {
-                            background-color: $active-color;
+                            background-color: $hover-color;
                             color: $tips-background-color;
                         }
                     }
@@ -180,5 +225,6 @@ input::-webkit-inner-spin-button {
 }
 
 input {
+    font-family: $font-family;
     -moz-appearance: textfield;
 }
