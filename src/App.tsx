@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 // assets
 import './app.scss'
@@ -30,7 +30,8 @@ function App() {
             icon='dollar'
             error="Can't be zero"
             type="float"
-            id='bill-input' />
+            id='bill-input'
+            error_id='bill-error' />
           <Tips
             title='Select Tip %'
             passData={passData} />
@@ -39,7 +40,8 @@ function App() {
             icon='person'
             error="Can't be zero"
             type="int"
-            id='person-input' />
+            id='person-input'
+            error_id='person-error' />
         </div>
         <div className='display card'>
           <Output

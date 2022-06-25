@@ -1,35 +1,42 @@
 import React from 'react'
-import { useState } from 'react'
-import App from '../App'
 
 interface TipsData {
-    title: string,
+    title: string
     passData: any
 }
 
 function Tips(props: TipsData) {
 
     const calculate = (percent: HTMLInputElement) => {
+        // hide errors
+        // (document.getElementById('bill-error') as HTMLElement).style.visibility = 'hidden';
+        // (document.getElementById('person-error') as HTMLElement).style.visibility = 'hidden';
+
+        // (document.getElementById('bill-input') as HTMLInputElement).style.border = 'none';
+        // (document.getElementById('person-input') as HTMLInputElement).style.border = 'none';
+
         // inputs
-        let bill: number = parseFloat((document.getElementById('bill-input') as HTMLInputElement).value)
-        let persons: number = parseInt((document.getElementById('person-input') as HTMLInputElement).value)
+        let bill: number = parseFloat((document.getElementById('bill-input') as HTMLInputElement).value);
+        let persons: number = parseInt((document.getElementById('person-input') as HTMLInputElement).value);
 
-        if (isNaN(bill)) {
-            console.log("bill error")
+        if (isNaN(bill) || bill === 0) {
+            (document.getElementById('bill-error') as HTMLElement).style.visibility = 'visible';
+            (document.getElementById('bill-input') as HTMLInputElement).style.border = '2px solid #B47D6E';
         }
 
-        if (isNaN(persons)) {
-            console.log("person error")
+        if (isNaN(persons) || persons == 0) {
+            (document.getElementById('person-error') as HTMLElement).style.visibility = 'visible';
+            (document.getElementById('person-input') as HTMLInputElement).style.border = '2px solid #B47D6E';
         }
 
-        if (!isNaN(persons) && !isNaN(bill)) {
-            let tip: number = (parseFloat(percent.value) * bill / 100) / persons
-            let total: number = bill / persons + tip
+        if (!isNaN(persons) && !isNaN(bill) && persons !== 0 && bill !== 0) {
+            let tip: number = (parseFloat(percent.value) * bill / 100) / persons;
+            let total: number = bill / persons + tip;
 
-            if (isNaN(tip)) tip = 0
-            if (isNaN(total)) total = 0
+            if (isNaN(tip)) tip = 0;
+            if (isNaN(total)) total = 0;
 
-            props.passData(tip, total)
+            props.passData(tip, total);
         }
     }
 
@@ -40,7 +47,7 @@ function Tips(props: TipsData) {
             </div>
             <div className='tips'>
                 <button name='tips-btns' value={5} onClick={(e) => calculate((e.target as HTMLInputElement))}>5%</button>
-                <button name='tips-btns' value={5} onClick={(e) => calculate((e.target as HTMLInputElement))}>10%</button>
+                <button name='tips-btns' value={10} onClick={(e) => calculate((e.target as HTMLInputElement))}>10%</button>
                 <button name='tips-btns' value={15} onClick={(e) => calculate((e.target as HTMLInputElement))}>15%</button>
                 <button name='tips-btns' value={25} onClick={(e) => calculate((e.target as HTMLInputElement))}>25%</button>
                 <button name='tips-btns' value={50} onClick={(e) => calculate((e.target as HTMLInputElement))}>50%</button>
