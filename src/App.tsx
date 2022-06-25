@@ -20,6 +20,22 @@ function App() {
     setTotal(total)
   }
 
+  // reset function
+  const reset = () => {
+    // styles
+    (document.getElementById('bill-error') as HTMLElement).style.visibility = 'hidden';
+    (document.getElementById('person-error') as HTMLElement).style.visibility = 'hidden';
+
+    (document.getElementById('bill-input') as HTMLInputElement).style.border = 'none';
+    (document.getElementById('person-input') as HTMLInputElement).style.border = 'none';
+
+    (document.getElementById('bill-input') as HTMLInputElement).value = '';
+    (document.getElementById('person-input') as HTMLInputElement).value = '';
+    (document.getElementById('custom-tip') as HTMLInputElement).value = '';
+
+    passData(0, 0);
+  }
+
   return (
     <div className="App">
       <header><img src={logo} alt='Logo' /></header>
@@ -50,7 +66,7 @@ function App() {
           <Output
             title='Total'
             result={total} />
-          <button>reset</button>
+          <button onClick={() => { reset() }}>reset</button>
         </div>
       </main >
     </div >

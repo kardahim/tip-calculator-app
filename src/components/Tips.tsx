@@ -8,13 +8,6 @@ interface TipsData {
 function Tips(props: TipsData) {
 
     const calculate = (percent: HTMLInputElement) => {
-        // hide errors
-        // (document.getElementById('bill-error') as HTMLElement).style.visibility = 'hidden';
-        // (document.getElementById('person-error') as HTMLElement).style.visibility = 'hidden';
-
-        // (document.getElementById('bill-input') as HTMLInputElement).style.border = 'none';
-        // (document.getElementById('person-input') as HTMLInputElement).style.border = 'none';
-
         // inputs
         let bill: number = parseFloat((document.getElementById('bill-input') as HTMLInputElement).value);
         let persons: number = parseInt((document.getElementById('person-input') as HTMLInputElement).value);
@@ -51,7 +44,7 @@ function Tips(props: TipsData) {
                 <button name='tips-btns' value={15} onClick={(e) => calculate((e.target as HTMLInputElement))}>15%</button>
                 <button name='tips-btns' value={25} onClick={(e) => calculate((e.target as HTMLInputElement))}>25%</button>
                 <button name='tips-btns' value={50} onClick={(e) => calculate((e.target as HTMLInputElement))}>50%</button>
-                <input placeholder='Custom' type='number' min={1} step={1} onChange={(e) => calculate((e.target as HTMLInputElement))} />
+                <input placeholder='Custom' type='number' min={1} step={1} onChange={(e) => calculate((e.target as HTMLInputElement))} id='custom-tip' />
             </div>
         </div>
     )

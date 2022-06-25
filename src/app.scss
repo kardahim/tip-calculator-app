@@ -145,6 +145,7 @@ body {
                         color: $tips-background-color;
                         font-weight: $font-weight;
                         padding: 0 20px;
+                        cursor: pointer;
 
                         &:focus {
                             border: $active-color 2px solid;
