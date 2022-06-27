@@ -14,9 +14,19 @@ $font-family: 'Space Mono', monospace;
 $font-weight: 700;
 $inputs-font-size: 24px;
 
-// resolutions
-$mobile-resolution: 375px;
-$desktop-resolution: 1440px;
+// mixins
+
+@mixin laptop {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
 
 * {
     margin: 0;
@@ -37,6 +47,10 @@ body {
 
     header {
         margin-bottom: 70px;
+
+        @include mobile {
+            margin-top: 70px;
+        }
     }
 
     main {
@@ -50,11 +64,28 @@ body {
         height: 500px;
         min-width: 1000px;
 
+        @include laptop {
+            min-width: 500px;
+        }
+
+        @include mobile {
+            min-width: auto;
+        }
+
         // flex
         display: flex;
 
-        .card {
+        @include mobile {
+            flex-direction: column;
+            align-items: center;
+            height: fit-content;
             width: 100%;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .card {
+            width: 80%;
             border-radius: 20px;
 
             // flex
@@ -68,6 +99,12 @@ body {
             margin: 25px 25px 25px 0;
             padding: 45px 45px 0 45px;
 
+            @include mobile {
+                font-size: $inputs-font-size;
+                margin: 0 0 50px;
+                height: 300px;
+            }
+
             .output-container {
                 display: flex;
                 justify-content: space-between;
@@ -76,6 +113,10 @@ body {
                 .output-labels {
                     display: flex;
                     flex-direction: column;
+
+                    @include mobile {
+                        font-size: initial;
+                    }
 
                     .output-title {
                         color: $main-card-color;
@@ -89,6 +130,10 @@ body {
                 .output-result {
                     color: $active-color;
                     font-size: 40px;
+
+                    @include mobile {
+                        font-size: 30px;
+                    }
                 }
             }
 
@@ -104,6 +149,10 @@ body {
                 font-weight: $font-weight;
                 color: $tips-background-color;
 
+                @include mobile {
+                    margin: 0px;
+                }
+
                 &:hover {
                     background-color: $hover-color;
                 }
@@ -112,7 +161,12 @@ body {
 
         // left-card
         .options {
-            margin: 50px;
+            padding: 50px;
+
+            @include mobile {
+                padding: 50px 0;
+            }
+
             color: $options-color;
 
             // Input component
@@ -170,11 +224,16 @@ body {
 
                 .tips {
                     display: grid;
-                    grid-template-columns: 134px 134px 134px;
+                    grid-template-columns: 30% 30% 30%;
                     grid-template-rows: 50px 50px;
                     column-gap: 15px;
                     row-gap: 15px;
                     margin-top: 10px;
+
+                    @include mobile {
+                        grid-template-columns: 48% 48%;
+                        grid-template-rows: 50px 50px 50PX;
+                    }
 
                     button {
                         font-size: $inputs-font-size;
@@ -186,6 +245,14 @@ body {
                         cursor: pointer;
                         font-family: $font-family;
 
+                        @include laptop {
+                            font-size: calc(#{$inputs-font-size} - 5px);
+                        }
+
+                        @include mobile {
+                            font-size: $inputs-font-size;
+                        }
+
                         &:hover {
                             background-color: $hover-color;
                             color: $tips-background-color;
@@ -195,13 +262,22 @@ body {
                     input {
                         color: $tips-background-color;
                         text-align: right;
-                        padding: 0 20px;
+                        padding: 0 10px;
+                        width: 100%;
                         font-weight: $font-weight;
                         font-size: $inputs-font-size;
                         background-color: $input-background-color;
                         border: none;
                         border-radius: 5px;
                         cursor: pointer;
+
+                        @include laptop {
+                            font-size: calc(#{$inputs-font-size} - 5px);
+                        }
+
+                        @include mobile {
+                            font-size: $inputs-font-size;
+                        }
 
                         &:focus {
                             border: $active-color 2px solid;
