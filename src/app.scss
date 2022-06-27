@@ -305,3 +305,17 @@ input {
     font-family: $font-family;
     -moz-appearance: textfield;
 }
+
+footer {
+    font-size: $inputs-font-size;
+    margin: 15px;
+
+    @include mobile {
+        font-size: calc(#{$inputs-font-size} - 7px);
+        width: 100%;
+        margin: 0;
+        padding: 15px;
+        background-color: $main-card-color;
+        text-align: center;
+    }
+}

@@ -69,6 +69,10 @@ function App() {
           <button onClick={() => { reset() }}>reset</button>
         </div>
       </main >
+      <footer className="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="https://github.com/kardahim">Paweł Ciszewski</a>.
+      </footer>
     </div >
   );
 }
