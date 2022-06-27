@@ -70,7 +70,7 @@ function App() {
         </div>
       </main >
       <footer className="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
         Coded by <a href="https://github.com/kardahim">Paweł Ciszewski</a>.
       </footer>
     </div >

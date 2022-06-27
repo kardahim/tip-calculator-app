@@ -17,7 +17,7 @@ function Tips(props: TipsData) {
             (document.getElementById('bill-input') as HTMLInputElement).style.border = '2px solid #B47D6E';
         }
 
-        if (isNaN(persons) || persons == 0) {
+        if (isNaN(persons) || persons === 0) {
             (document.getElementById('person-error') as HTMLElement).style.visibility = 'visible';
             (document.getElementById('person-input') as HTMLInputElement).style.border = '2px solid #B47D6E';
         }
